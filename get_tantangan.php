@@ -8,8 +8,8 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-// Query untuk menampilkan data dari tabel challenges
-$query = "SELECT id, name, description, deadline, status, created_at FROM tantangan";
+// Query untuk menampilkan data dari tabel tantangan
+$query = "SELECT id, name, description, deadline, status, created_at, progress FROM tantangan";
 $result = mysqli_query($koneksi, $query);
 
 // Membuat array untuk menyimpan hasil query
@@ -23,5 +23,3 @@ echo json_encode($data);
 
 // Menutup koneksi
 mysqli_close($koneksi);
-
-

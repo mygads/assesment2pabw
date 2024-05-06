@@ -6,6 +6,11 @@
     <title>Daftar Tantangan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .progress-bar {
+            background-color: #28a745; /* Warna hijau */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,6 +24,7 @@
                     <th>Batas Waktu</th>
                     <th>Status</th>
                     <th>Tanggal Dibuat</th>
+                    <th>Progres</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -60,10 +66,16 @@
                 row.append($('<td>').text(challenge.deadline));
                 row.append($('<td>').text(challenge.status));
                 row.append($('<td>').text(challenge.created_at));
+                // Menambahkan progres bar
+                var progressHtml = '<div class="progress">' +
+                    '<div class="progress-bar" role="progressbar" style="width: ' + challenge.progress + '%" aria-valuenow="' + challenge.progress + '" aria-valuemin="0" aria-valuemax="100"></div>' +
+                    '</div>';
+                row.append($('<td>').html(progressHtml));
                 row.append($('<td>').html('<button class="btn btn-danger" onclick="deleteChallenge(' + challenge.id + ')">Hapus</button>'));
                 table.append(row);
             });
         }
+
 
         // Menghapus data dengan Ajax
         function deleteChallenge(id) {
