@@ -26,5 +26,28 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        // Memuat data dari server saat halaman dimuat
+        $(document).ready(function() {
+            fetchData();
+        });
+
+        // Memuat data dari server dengan Ajax
+        function fetchData() {
+            $.ajax({
+                url: 'get_challenges.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    displayData(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Terjadi kesalahan: ' + error);
+                }
+            });
+        }
+
+    </script>
 </body>
 </html>
