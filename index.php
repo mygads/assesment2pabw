@@ -65,6 +65,22 @@
             });
         }
 
+        // Menghapus data dengan Ajax
+        function deleteChallenge(id) {
+            if (confirm('Anda yakin ingin menghapus tantangan ini?')) {
+                $.ajax({
+                    url: 'delete_tantangan.php?id=' + id,
+                    type: 'GET',
+                    success: function(response) {
+                        // Memuat ulang data setelah penghapusan
+                        fetchData();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Terjadi kesalahan: ' + error);
+                    }
+                });
+            }
+        }
     </script>
 </body>
 </html>
