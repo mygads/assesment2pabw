@@ -36,7 +36,7 @@
         // Memuat data dari server dengan Ajax
         function fetchData() {
             $.ajax({
-                url: 'get_challenges.php',
+                url: 'get_tantangan.php',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
