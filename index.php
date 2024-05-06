@@ -48,6 +48,23 @@
             });
         }
 
+        // Menampilkan data dalam tabel
+        function displayData(data) {
+            var table = $('#challenge-table tbody');
+            table.empty();
+            $.each(data, function(index, challenge) {
+                var row = $('<tr>');
+                row.append($('<td>').text(challenge.id));
+                row.append($('<td>').text(challenge.name));
+                row.append($('<td>').text(challenge.description));
+                row.append($('<td>').text(challenge.deadline));
+                row.append($('<td>').text(challenge.status));
+                row.append($('<td>').text(challenge.created_at));
+                row.append($('<td>').html('<button class="btn btn-danger" onclick="deleteChallenge(' + challenge.id + ')">Hapus</button>'));
+                table.append(row);
+            });
+        }
+
     </script>
 </body>
 </html>
